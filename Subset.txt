@@ -1,0 +1,56 @@
+   #include <stdio.h>
+   int isSubset(int [], int [],int ,int ) ;  
+   int main()
+   {
+        int a[] = {1,2,3,4,5,6,7} ; 
+        int b[] = {1,9,7}; 
+        int n = sizeof(b)/sizeof(int); 
+        int m = sizeof(a)/sizeof(int);
+        int subset = isSubset(a, b,n,m) ; 
+	if(subset == 1)
+	{	
+		printf("b is a subset of a");
+	}
+	else
+	{
+		printf("b is not a subset of a");
+	}
+   }
+
+
+    int isSubset(int a[], int b[], int n , int m) 
+    {
+        int i,j,k = 0 ; 
+        int res = 0 ; 
+        // Your code here
+        
+        
+        int c[n] ; 
+        
+        for(i=0 ; i< n ; i++)
+        {
+            int temp = b[i] ; 
+            for(j=0 ; j<m ; j++)
+            {
+                if(a[j] ==temp)
+                {
+                    c[k] = 1 ; 
+                    k++;
+                    break ; 
+                }
+            }
+        }
+        
+        for(k=0 ; k< n ; k++)
+        {
+            res += c[k] ; 
+        }
+        if(res == n)
+        {
+            return 1 ; 
+        }
+        return -1 ; 
+
+        
+    }
+
